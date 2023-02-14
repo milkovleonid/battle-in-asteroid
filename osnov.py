@@ -202,7 +202,7 @@ def main():
     cor_z = []
     x = y = 0  # координаты
     levelin = level
-    if flag == True:
+    if yr == True:
         levelin = level1
     for row in levelin:  # вся строка
         for col in row:  # каждый символ
