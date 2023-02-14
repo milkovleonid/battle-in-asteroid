@@ -58,6 +58,7 @@ hero = Player((66, 512))
 veaponi = hero.veapon
 
 def menu(screen, zv1, zv2, zv11, zv21):
+    flag = False
     timer = pygame.time.Clock()
     bg = Surface((WIN_WIDTH, WIN_HEIGHT))  # Создание видимой поверхности
     entiti = pygame.sprite.Group()
@@ -88,7 +89,7 @@ def menu(screen, zv1, zv2, zv11, zv21):
                         flag = True
                         sostoyanie = 2
                         stop = 0
-
+    return flag
 
 class Camera(object):
     def __init__(self, camera_func, width, height):
@@ -144,14 +145,14 @@ def main():
     pygame.display.set_caption("battle in the Asteroid")  # Пишем в шапку
 
     if sostoyanie == 0:
-        menu(screen, False, False, False, False)
+        yr = menu(screen, False, False, False, False)
 
 
 
     bg = Surface((WIN_WIDTH, WIN_HEIGHT))  # Создание видимой поверхности
     # будем использовать как фон
     bg = image.load(BACKGROUND_1)  # Заливаем поверхность сплошным цветом
-    if flag:
+    if yr:
         bg = image.load(BACKGROUND_2)
     bg = transform.scale(bg, (830, 640))
     left = right = False  # по умолчанию - стоим
